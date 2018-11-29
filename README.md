@@ -11,3 +11,9 @@ OpenVINO+ADAS+LattePandaAlpha. CPU / GPU / NCS. RealTime semantic-segmentaion.
 - Python 3.5
 - OpenCV 3.4.3
 - PIL
+
+# Option
+
+- CPU
+- GPU
+- Intel Neural Compute Stick / Neural Compute Stick 2
