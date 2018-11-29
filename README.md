@@ -1,7 +1,7 @@
 # OpenVINO-ADAS
 OpenVINO+ADAS+LattePandaAlpha. CPU / GPU / NCS. RealTime semantic-segmentaion.  
   
-**Click the image below to play Youtube video. (CPU only. 0.9FPS - 1.0FPS)**  
+**Click the image below to play Youtube video. (CPU only mode. 0.9FPS - 1.0FPS)**  
 [![sample](./media/sample.jpg)](https://youtu.be/R0dtm30qazM)  
 
 # Environment
