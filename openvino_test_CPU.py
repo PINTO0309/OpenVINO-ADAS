@@ -35,7 +35,7 @@ n, c, h, w = net.inputs[input_blob].shape  #n, c, h, w = 1, 3, 256, 256
 del net
 
 cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FPS, 30)
+cap.set(cv2.CAP_PROP_FPS, 10)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, camera_width)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, camera_height)
 time.sleep(1)
@@ -49,7 +49,7 @@ while cap.isOpened():
     prepimg = frame[:, :, ::-1].copy()
     prepimg = Image.fromarray(prepimg)
     prepimg = prepimg.resize((2048, 1024), Image.ANTIALIAS)
-    prepimg = np.asarray(prepimg) / 255.0
+    prepimg = np.asarray(prepimg) #/ 255.0
     prepimg = prepimg.transpose((2, 0, 1)).reshape((1, c, h, w))
 
     t2 = time.perf_counter()
@@ -58,16 +58,16 @@ while cap.isOpened():
     if exec_net.requests[0].wait(-1) == 0:
         outputs = exec_net.requests[0].outputs[out_blob] # (1, 3, 2048, 1024)
         print("SegmentationTime = {:.7f}".format(time.perf_counter() - t2))
-        #outputs = outputs.transpose((2, 3, 1, 0)).reshape((h, w, c)) # (240, 320, 3)
+        outputs = outputs[0][0]
+        print(outputs.shape)
         outputs = cv2.resize(outputs, (camera_width, camera_height)) # (320, 240, 3)
 
         # View
-        image = Image.fromarray(np.uint8(outputs[0]), mode="P")
+        image = Image.fromarray(np.uint8(outputs), mode="P")
         image.putpalette(palette)
         image = image.convert("RGB")
 
         image = np.asarray(image)
-        image = prepimg = image[:, :, ::-1].copy()
         image = cv2.addWeighted(frame, 1, image, 0.9, 0)
 
     cv2.putText(image, fps, (camera_width-180,15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (38,0,255), 1, cv2.LINE_AA)
