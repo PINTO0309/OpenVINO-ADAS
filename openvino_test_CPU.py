@@ -15,6 +15,9 @@ palette = seg_image.getpalette() # Get a color palette
 camera_width = 320
 camera_height = 240
 fps = ""
+framepos = 0
+frame_count = 0
+vidfps = 0
 elapsedTime = 0
 
 #plugin = IEPlugin(device="HETERO:MYRIAD,CPU")
@@ -44,11 +47,16 @@ del net
 cap = cv2.VideoCapture("data/input/testvideo.mp4")
 camera_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 camera_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+vidfps = int(cap.get(cv2.CAP_PROP_FPS))
+print("videosFrameCount =", str(frame_count))
+print("videosFPS =", str(vidfps))
 
 time.sleep(1)
 
 while cap.isOpened():
     t1 = time.time()
+    cap.set(cv2.CAP_PROP_POS_FRAMES, framepos)
     ret, frame = cap.read()
     if not ret:
         break
@@ -84,6 +92,7 @@ while cap.isOpened():
         break
     elapsedTime = time.time() - t1
     fps = "(Playback) {:.1f} FPS".format(1/elapsedTime)
+    framepos += vidfps
 
 cv2.destroyAllWindows()
 del exec_net
