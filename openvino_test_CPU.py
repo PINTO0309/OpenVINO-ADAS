@@ -7,8 +7,8 @@ from PIL import Image
 import time
 from openvino.inference_engine import IENetwork, IEPlugin
 
-model_xml='lrmodels/FP32/semanticsegmentation_frozen_person_32.xml'
-model_bin='lrmodels/FP32/semanticsegmentation_frozen_person_32.bin'
+model_xml='lrmodels/FP32/semantic-segmentation-adas-0001.xml'
+model_bin='lrmodels/FP32/semantic-segmentation-adas-0001.bin'
 net = IENetwork.from_ir(model=model_xml, weights=model_bin)
 seg_image = Image.open("data/input/009649.png")
 palette = seg_image.getpalette() # Get a color palette
