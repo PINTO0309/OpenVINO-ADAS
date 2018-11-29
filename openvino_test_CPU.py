@@ -25,6 +25,7 @@ elapsedTime = 0
 
 plugin = IEPlugin(device="CPU")
 
+plugin.add_cpu_extension("/home/alpha/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so")
 exec_net = plugin.load(network=net)
 
 input_blob = next(iter(net.inputs))        #input_blob = 'input'
