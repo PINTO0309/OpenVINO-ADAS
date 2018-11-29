@@ -58,7 +58,7 @@ while cap.isOpened():
     if exec_net.requests[0].wait(-1) == 0:
         outputs = exec_net.requests[0].outputs[out_blob] # (1, 3, 2048, 1024)
         print("SegmentationTime = {:.7f}".format(time.perf_counter() - t2))
-        outputs = outputs.transpose((2, 3, 1, 0)).reshape((h, w, c)) # (240, 320, 3)
+        #outputs = outputs.transpose((2, 3, 1, 0)).reshape((h, w, c)) # (240, 320, 3)
         outputs = cv2.resize(outputs, (camera_width, camera_height)) # (320, 240, 3)
 
         # View
