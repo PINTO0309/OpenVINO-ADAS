@@ -16,4 +16,4 @@ OpenVINO+ADAS+LattePandaAlpha. CPU / GPU / NCS. RealTime semantic-segmentaion.
 
 - CPU
 - GPU
-- Intel Neural Compute Stick / Neural Compute Stick 2
+- 【unstable】Intel Neural Compute Stick / Neural Compute Stick 2
