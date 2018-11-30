@@ -6,7 +6,7 @@ OpenVINO+ADAS+LattePandaAlpha. CPU / GPU / NCS. RealTime semantic-segmentaion.
   
 **Click the image below to play Youtube video. (CPU only mode. 0.9FPS - 1.0FPS)**  
 [![sample](./media/sample.jpg)](https://youtu.be/R0dtm30qazM)  
-
+![01](./media/sample.gif)
 # Environment
 - LattePanda Alpha (Intel 7th Core m3-7y30)
 - Ubuntu 16.04 x86_64
