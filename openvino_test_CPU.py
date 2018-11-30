@@ -28,11 +28,11 @@ elapsedTime = 0
 #plugin = IEPlugin(device="GPU")
 plugin = IEPlugin(device="CPU")
 
-plugin.add_cpu_extension("/home/alpha/inference_engine_samples_build/intel64/Release/lib/libcpu_extension.so")
+plugin.add_cpu_extension("lib/libcpu_extension.so")
 exec_net = plugin.load(network=net)
 
-input_blob = next(iter(net.inputs))  #input_blob = 'data'
-out_blob   = next(iter(net.outputs)) #out_blob   = 'argmax'
+input_blob = next(iter(net.inputs))  #input_blob = "data"
+out_blob   = next(iter(net.outputs)) #out_blob   = "argmax"
 print("input_blob =", input_blob)
 print("out_blob =", out_blob)
 n, c, h, w = net.inputs[input_blob].shape  #n, c, h, w = 1, 3, 1024, 2048
@@ -64,7 +64,7 @@ while cap.isOpened():
     prepimg = frame[:, :, ::-1].copy()
     prepimg = Image.fromarray(prepimg)
     prepimg = prepimg.resize((2048, 1024), Image.ANTIALIAS)
-    prepimg = np.asarray(prepimg) #/ 255.0
+    prepimg = np.asarray(prepimg)
     prepimg = prepimg.transpose((2, 0, 1)).reshape((1, c, h, w))
 
     t2 = time.perf_counter()
