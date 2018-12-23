@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<net batch="1" name="semantic-segmentation-adas-0001" version="3">
+<net batch="1" name="semantic-segmentation-adas-0001" version="4">
 	<layers>
 		<layer id="0" name="data" precision="FP32" type="Input">
 			<output>
@@ -179,7 +179,7 @@
 			</output>
 		</layer>
 		<layer id="9" name="MaxPool2DBackward12" precision="FP32" type="Pooling">
-			<data exclude-pad="false" kernel="3,3" pads_begin="0,0" pads_end="0,0" pool-method="max" rounding_type="ceil" strides="2,2"/>
+			<data exclude-pad="true" kernel="3,3" pads_begin="0,0" pads_end="0,0" pool-method="max" rounding_type="ceil" strides="2,2"/>
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -3691,7 +3691,7 @@
 		<edge from-layer="162" from-port="3" to-layer="163" to-port="0"/>
 	</edges>
 	<meta_data>
-		<MO_version value="1.4.288.16472e37"/>
+		<MO_version value="1.5.4.dacdc0a0"/>
 		<cli_parameters>
 			<data_type value="FP32"/>
 			<disable_fusing value="False"/>
