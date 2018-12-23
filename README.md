@@ -10,9 +10,9 @@ OpenVINO+ADAS+LattePandaAlpha. CPU / GPU / NCS. RealTime semantic-segmentaion.
 # Environment
 - LattePanda Alpha (Intel 7th Core m3-7y30)
 - Ubuntu 16.04 x86_64
-- OpenVINO toolkit 2018 R4 (2018.4.420)
+- OpenVINO toolkit 2018 R5 (2018.5.445)
 - Python 3.5
-- OpenCV 3.4.3
+- OpenCV 4.0.1-openvino
 - PIL
 
 # Option
