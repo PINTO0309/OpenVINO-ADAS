@@ -48,8 +48,8 @@ while cap.isOpened():
     net.setInput(blob)
     out = net.forward()
 
-    #print(out.shape)
-    #sys.exit(0)
+    print(out.shape)
+    sys.exit(0)
 
     outputs = exec_net.requests[0].outputs[out_blob] # (1, 1, 1024, 2048)
     print("SegmentationTime = {:.7f}".format(time.perf_counter() - t2))

@@ -3483,6 +3483,25 @@
 				<biases offset="13371740" size="40"/>
 			</blobs>
 		</layer>
+		<layer id="163" name="argmax" precision="FP16" type="ArgMax">
+			<data axis="1" out_max_val="0" top_k="1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>20</dim>
+					<dim>1024</dim>
+					<dim>2048</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>2048</dim>
+				</port>
+			</output>
+		</layer>
 	</layers>
 	<edges>
 		<edge from-layer="0" from-port="0" to-layer="1" to-port="0"/>
@@ -3669,6 +3688,7 @@
 		<edge from-layer="159" from-port="3" to-layer="160" to-port="0"/>
 		<edge from-layer="160" from-port="1" to-layer="161" to-port="0"/>
 		<edge from-layer="161" from-port="1" to-layer="162" to-port="0"/>
+		<edge from-layer="162" from-port="3" to-layer="163" to-port="0"/>
 	</edges>
 	<meta_data>
 		<MO_version value="1.5.4.dacdc0a0"/>
@@ -3695,7 +3715,7 @@
 			<model_name value="semantic-segmentation-adas-0001"/>
 			<move_to_preprocess value="False"/>
 			<offload_unsupported_operations_to_tf value="False"/>
-			<output value="Rectify/Mul_"/>
+			<output value="argmax"/>
 			<output_dir value="DIR"/>
 			<remove_output_softmax value="False"/>
 			<reverse_input_channels value="False"/>
